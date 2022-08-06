@@ -129,6 +129,9 @@ client := resty.New()
 resp, err := client.R().
     EnableTrace().
     Get("https://httpbin.org/get")
+    
+// need to do invoke close
+resp.RawBody().Close()
 
 // Explore response object
 fmt.Println("Response Info:")
